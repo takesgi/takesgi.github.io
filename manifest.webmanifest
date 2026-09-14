@@ -1,0 +1,85 @@
+{
+  "name": "二等無人航空機操縦士学科試験",
+  "short_name": "学科試験",
+  "description": "無人航空機の飛行の安全に関する教則 第5版に準拠した、二等無人航空機操縦士 学科試験の対策アプリ。",
+  "lang": "ja",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "/drone2-gakka/",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#eef5f9",
+  "theme_color": "#0d7fb8",
+  "categories": [
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "模擬試験をはじめる",
+      "short_name": "模試",
+      "description": "50問30分の本番形式",
+      "url": "./?go=mock",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "今日の10問",
+      "short_name": "演習",
+      "description": "全章からランダムに10問",
+      "url": "./?go=drill",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "暗記カード",
+      "short_name": "カード",
+      "description": "重要数値をカードで確認",
+      "url": "./?go=card",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
+}
