@@ -1,5 +1,5 @@
 /* 二等無人航空機操縦士学科試験 — オフライン動作と学習リマインダー */
-const VERSION = 'drone2-gakka-v2';
+const VERSION = 'drone2-gakka-v3';
 const SHELL   = VERSION + '-shell';
 const CFG     = VERSION + '-cfg';
 const CORE = [
