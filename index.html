@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="無人航空機の飛行の安全に関する教則 第5版に準拠した、二等無人航空機操縦士 学科試験の対策アプリ。420問の問題演習、本番形式の模擬試験、苦手復習、暗記カード、教則ダイジェストを収録。">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15242f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1f3349" media="(prefers-color-scheme: dark)">
 <style>:root{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
@@ -29,34 +29,34 @@
   --c2:#e2860b; --c2w:#fdf0d8; --c3:#d6246b; --c3w:#fde2ec;
   --c4:#0d8fc7; --c4w:#dbeffb; --c5:#6a4ad6; --c5w:#e9e3fc;
   --c6:#0d9a74; --c6w:#d8f5ec;
-  --r:12px; --rm:20px; --rl:28px; --rp:999px;
+  --r:3px; --rm:3px; --rl:3px; --rp:3px;
   --fd:"UA Gothic","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
   --fb:"UA Gothic","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
   --fm:"UA Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0b1721; --panel:#15242f; --panel2:#1d303d; --sink:#112029;
-  --ink:#e9f3f8; --ink2:#bad0dc; --muted:#849cad;
-  --rule:#2a4051; --rule2:#203444; --grid:rgba(120,190,230,.06);
-  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#123244;
-  --mag:#ff80b1; --mag-wash:#36212d;
-  --ok:#3fd0a0; --ok-wash:#0e3128; --ng:#f48a7c; --ng-wash:#321e1b;
-  --warn:#e7c05d; --warn-wash:#2e2619;
-  --c2:#f9ba4b; --c2w:#352a11; --c3:#ff80b1; --c3w:#37222d;
-  --c4:#4fc3ed; --c4w:#123342; --c5:#ab96f9; --c5w:#272242;
-  --c6:#40d7ab; --c6w:#0e332b;
+  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
+  --ink:#e9f3f8; --ink2:#c3d6e3; --muted:#93abbf;
+  --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
+  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#1d405a;
+  --mag:#ff80b1; --mag-wash:#43293a;
+  --ok:#3fd0a0; --ok-wash:#17403a; --ng:#f48a7c; --ng-wash:#44292a;
+  --warn:#e7c05d; --warn-wash:#3b3220;
+  --c2:#f9ba4b; --c2w:#3b3220; --c3:#ff80b1; --c3w:#43293a;
+  --c4:#4fc3ed; --c4w:#1c3d52; --c5:#ab96f9; --c5w:#302b52;
+  --c6:#40d7ab; --c6w:#1b3f37;
 }}
 :root[data-theme="dark"]{
-  --paper:#0b1721; --panel:#15242f; --panel2:#1d303d; --sink:#112029;
-  --ink:#e9f3f8; --ink2:#bad0dc; --muted:#849cad;
-  --rule:#2a4051; --rule2:#203444; --grid:rgba(120,190,230,.06);
-  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#123244;
-  --mag:#ff80b1; --mag-wash:#36212d;
-  --ok:#3fd0a0; --ok-wash:#0e3128; --ng:#f48a7c; --ng-wash:#321e1b;
-  --warn:#e7c05d; --warn-wash:#2e2619;
-  --c2:#f9ba4b; --c2w:#352a11; --c3:#ff80b1; --c3w:#37222d;
-  --c4:#4fc3ed; --c4w:#123342; --c5:#ab96f9; --c5w:#272242;
-  --c6:#40d7ab; --c6w:#0e332b;
+  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
+  --ink:#e9f3f8; --ink2:#c3d6e3; --muted:#93abbf;
+  --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
+  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#1d405a;
+  --mag:#ff80b1; --mag-wash:#43293a;
+  --ok:#3fd0a0; --ok-wash:#17403a; --ng:#f48a7c; --ng-wash:#44292a;
+  --warn:#e7c05d; --warn-wash:#3b3220;
+  --c2:#f9ba4b; --c2w:#3b3220; --c3:#ff80b1; --c3w:#43293a;
+  --c4:#4fc3ed; --c4w:#1c3d52; --c5:#ab96f9; --c5w:#302b52;
+  --c6:#40d7ab; --c6w:#1b3f37;
 }
 
 *{box-sizing:border-box}
@@ -338,60 +338,89 @@ button.chrow:hover .idx{background:var(--cc);color:var(--panel)}
 .cd.today{--c3:var(--ok);border-top-color:var(--ok);background:var(--ok-wash)}
 .cd.today .d,.cd.today .t{color:var(--ok)}
 
-/* ============ home: 航空図・フライトプラン（ホーム画面だけ。body[data-route] は render() が付ける） ============ */
-/* ダークモードのホームは、ほかの画面より明るい紺色 */
-:root[data-theme="dark"] body[data-route="home"]{
-  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
-  --ink2:#c3d6e3; --muted:#93abbf; --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
-  --blue-wash:#1d405a; --c2w:#3b3220; --c3w:#43293a; --c4w:#1c3d52; --c5w:#302b52; --c6w:#1b3f37}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body[data-route="home"]{
-  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
-  --ink2:#c3d6e3; --muted:#93abbf; --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
-  --blue-wash:#1d405a; --c2w:#3b3220; --c3w:#43293a; --c4w:#1c3d52; --c5w:#302b52; --c6w:#1b3f37}}
-body[data-route="home"] #view{--line:var(--ink2)}
-body[data-route="home"] #view>.stack{gap:14px}
-body[data-route="home"] #view .panel,body[data-route="home"] #view .cd,body[data-route="home"] #view .d20,body[data-route="home"] #view .navrow{
-  border-radius:3px;border:1.5px solid var(--line);box-shadow:3px 3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+/* ============ 航空図・フライトプラン（全画面共通のデザイン） ============ */
+:root{--line:var(--ink2);--shadow:3px 3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+#view>.stack{gap:14px}
+#view .panel,#view .cd,#view .d20,#view .navrow{
+  border-radius:3px;border:1.5px solid var(--line);box-shadow:var(--shadow)}
 /* パネル見出しを反転タブに（書式の記入欄見出し） */
-body[data-route="home"] #view .panel>.lg:first-child,body[data-route="home"] #view .panel .gauge .lg{
+#view .panel>.lg:first-child,#view .panel .gauge .lg{
   margin:-16px -16px 14px;padding:5px 12px;background:var(--ink);color:var(--paper);letter-spacing:.26em}
-body[data-route="home"] #view .panel .gauge .lg{margin:0 0 8px;display:inline-flex}
-body[data-route="home"] #view .panel>.lg::after,body[data-route="home"] #view .gauge .lg::after{display:none}
-body[data-route="home"] #view .panel>.lg::before,body[data-route="home"] #view .gauge .lg::before{background:var(--mag);width:8px;height:8px}
-body[data-route="home"] #view .lg::before{border-radius:0}
-body[data-route="home"] #view h2.page{font-size:19px}
+#view .panel .gauge .lg{margin:0 0 8px;display:inline-flex}
+#view .panel>.lg::after,#view .gauge .lg::after{display:none}
+#view .panel>.lg::before,#view .gauge .lg::before{background:var(--mag);width:8px;height:8px}
+#view .lg::before{border-radius:0}
+#view h2.page{font-size:19px}
 /* カウントダウン：ETA 欄 */
-body[data-route="home"] #view .cd{background:var(--panel);padding:0;gap:0;grid-template-columns:auto 1fr}
-body[data-route="home"] #view .cd>div:first-child{padding:12px 16px;background:var(--c3w);border-right:1.5px solid var(--line);height:100%}
-body[data-route="home"] #view .cd>div:last-child{padding:12px 14px}
+#view .cd{background:var(--panel);padding:0;gap:0;grid-template-columns:auto 1fr}
+#view .cd>div:first-child{padding:12px 16px;background:var(--c3w);border-right:1.5px solid var(--line);height:100%}
+#view .cd>div:last-child{padding:12px 14px}
 /* 今日の20問：管制のフライトストリップ */
-body[data-route="home"] #view .d20{padding:0;gap:0;grid-template-columns:76px 1fr 44px;min-height:76px;overflow:hidden}
-body[data-route="home"] #view .d20 .g{border-radius:0;border:0;border-right:1.5px solid var(--line);height:100%;min-height:76px;background:var(--c3);color:var(--panel)}
-body[data-route="home"] #view .d20 .g b,body[data-route="home"] #view .d20 .g i{line-height:76px}
-body[data-route="home"] #view .d20 .tx{padding:10px 14px}
-body[data-route="home"] #view .d20 .ar{height:100%;display:grid;place-items:center;border-left:1.5px dashed var(--line);font-size:15px}
+#view .d20{padding:0;gap:0;grid-template-columns:76px 1fr 44px;min-height:76px;overflow:hidden}
+#view .d20 .g{border-radius:0;border:0;border-right:1.5px solid var(--line);height:100%;min-height:76px;background:var(--c3);color:var(--panel)}
+#view .d20 .g b,#view .d20 .g i{line-height:76px}
+#view .d20 .tx{padding:10px 14px}
+#view .d20 .ar{height:100%;display:grid;place-items:center;border-left:1.5px dashed var(--line);font-size:15px}
 /* 3つの数値：1つの表に */
-body[data-route="home"] #view .readout{gap:0;border:1.5px solid var(--line);border-radius:3px;background:var(--panel);box-shadow:3px 3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
-body[data-route="home"] #view .readout>div{border:0;border-left:1.5px solid var(--line);border-radius:0;background:var(--panel);display:flex;flex-direction:column-reverse;padding:0}
-body[data-route="home"] #view .readout>div:first-child{border-left:0}
-body[data-route="home"] #view .readout span{display:block;background:var(--rw);border-bottom:1.5px solid var(--line);padding:4px 2px;color:var(--ink2);font-weight:700}
-body[data-route="home"] #view .readout b{padding:10px 4px 9px;font-size:24px}
+#view .readout{gap:0;border:1.5px solid var(--line);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+#view .readout>div{border:0;border-left:1.5px solid var(--line);border-radius:0;background:var(--panel);display:flex;flex-direction:column-reverse;padding:0}
+#view .readout>div:first-child{border-left:0}
+#view .readout span{display:block;background:var(--rw);border-bottom:1.5px solid var(--line);padding:4px 2px;color:var(--ink2);font-weight:700}
+#view .readout b{padding:10px 4px 9px;font-size:24px}
 /* 活動：記録欄のマス目 */
-body[data-route="home"] #view .act{gap:0;border:1.5px solid var(--line)}
-body[data-route="home"] #view .act s{border-radius:0;border:0;border-left:1px solid var(--rule);height:26px;background:var(--panel)}
-body[data-route="home"] #view .act s:first-child{border-left:0}
-body[data-route="home"] #view .act s.on{background:repeating-linear-gradient(135deg,var(--c6) 0 3px,color-mix(in srgb,var(--c6) 55%,var(--panel)) 3px 6px)}
-body[data-route="home"] #view .act s.tdy{outline:2px solid var(--mag);outline-offset:-2px}
+#view .act{gap:0;border:1.5px solid var(--line)}
+#view .act s{border-radius:0;border:0;border-left:1px solid var(--rule);height:26px;background:var(--panel)}
+#view .act s:first-child{border-left:0}
+#view .act s.on{background:repeating-linear-gradient(135deg,var(--c6) 0 3px,color-mix(in srgb,var(--c6) 55%,var(--panel)) 3px 6px)}
+#view .act s.tdy{outline:2px solid var(--mag);outline-offset:-2px}
 /* 章別：表の行 */
-body[data-route="home"] #view .chrow{border-bottom:1px dashed var(--rule)}
-body[data-route="home"] #view .chrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0}
-body[data-route="home"] #view .bar{border-radius:0;height:10px;border:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),var(--rule) calc(10% - 1px) 10%)}
-body[data-route="home"] #view .bar i{border-radius:0}
+#view .chrow{border-bottom:1px dashed var(--rule)}
+#view .chrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0}
+#view .bar{border-radius:0;height:10px;border:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),var(--rule) calc(10% - 1px) 10%)}
+#view .bar i{border-radius:0}
 /* クイックスタート：ウェイポイント */
-body[data-route="home"] #view .navrow{min-height:62px}
-body[data-route="home"] #view .navrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0;clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%)}
-body[data-route="home"] #view .navrow .ar{font-size:15px}
-body[data-route="home"] #view .d20 .tx .mt{line-height:1.6;display:block;text-wrap:balance}
+#view .navrow{min-height:62px}
+#view .navrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0;clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%)}
+#view .navrow .ar{font-size:15px}
+#view .d20 .tx .mt{line-height:1.6;display:block;text-wrap:balance}
+
+/* --- 全画面：枠・影・ボタン --- */
+.opt,.expl,.set,.fcface,.verdict,.numq,.rdy,.tsec,.sheet .box,.qfoot .bmk:not(.on){border:1.5px solid var(--line)}
+.opt,.set,.verdict,.numq,.fcface{box-shadow:var(--shadow)}
+.expl{border-top-width:4px}
+.fcface,.numq{border-top:4px solid var(--cc)}
+.verdict{border-top-width:4px}
+.tsec{box-shadow:none}
+.tsec+.tsec{margin-top:-1.5px}
+.tsec>summary::before{border-radius:0}
+.tsec[open]>summary{border-bottom:1.5px solid var(--line)}
+.opt .k{border-radius:0}
+.btn{border:1.5px solid var(--line);box-shadow:2px 2px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+.btn.pri{border-color:var(--blue)}
+.btn:not(:disabled):active{transform:translate(1px,1px);box-shadow:none}
+.btn:disabled{box-shadow:none}
+.seg{border:1.5px solid var(--line);box-shadow:var(--shadow)}
+.seg button{min-height:44px}
+.seg .cap{border-right:1.5px solid var(--line)}
+.rz{min-height:40px}
+button.sw{border-radius:3px;width:52px;height:30px}
+button.sw::after{border-radius:2px;width:24px;height:24px}
+button.sw[aria-checked="true"]::after{transform:translateX(22px)}
+button.sw{border:1.5px solid var(--line)}
+button.sw[aria-checked="true"]{border-color:var(--ok)}
+button.sw:not([aria-checked="true"])::after{background:var(--muted)}
+.revitem .mk{border-radius:0}
+.qsec{border-radius:0}
+.chtitle i{border-radius:0}
+.verdict .score{letter-spacing:-.02em}
+.sheet .box{box-shadow:0 -3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+/* 設定画面：見出しを反転した記入欄の見出し帯に */
+section>.lg:has(+ .set){display:inline-flex;margin:0;padding:5px 12px;background:var(--ink);color:var(--paper);letter-spacing:.26em}
+section>.lg:has(+ .set)::before{background:var(--mag);width:8px;height:8px}
+section>.lg:has(+ .set)::after{display:none}
+/* 見出しの上に乗る画面上部のボタンは、見た目そのままで押せる範囲を44pxに広げる */
+.iconbtn{position:relative}
+.iconbtn::after{content:"";position:absolute;inset:-6px}
 
 /* ============ settings ============ */
 .set{border:1px solid var(--rule);border-radius:var(--rl);background:var(--panel);overflow:hidden}
@@ -806,7 +835,6 @@ function render(){
   document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-current", String(b.dataset.r===route)));
   $("#hud").innerHTML = '<b>'+overall().mastery+'<span style="font-size:9px">%</span></b>習得度';
   const v = $("#view");
-  document.body.dataset.route = session ? "session" : route;
   if(session){ v.innerHTML = session.done ? viewResult() : viewQuiz(); afterRender(); return; }
   v.innerHTML = ({home:viewHome, drill:viewDrill, mock:viewMock, review:viewReview, card:viewCard, text:viewText, settings:viewSettings}[route])();
   afterRender();
