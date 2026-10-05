@@ -338,6 +338,61 @@ button.chrow:hover .idx{background:var(--cc);color:var(--panel)}
 .cd.today{--c3:var(--ok);border-top-color:var(--ok);background:var(--ok-wash)}
 .cd.today .d,.cd.today .t{color:var(--ok)}
 
+/* ============ home: 航空図・フライトプラン（ホーム画面だけ。body[data-route] は render() が付ける） ============ */
+/* ダークモードのホームは、ほかの画面より明るい紺色 */
+:root[data-theme="dark"] body[data-route="home"]{
+  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
+  --ink2:#c3d6e3; --muted:#93abbf; --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
+  --blue-wash:#1d405a; --c2w:#3b3220; --c3w:#43293a; --c4w:#1c3d52; --c5w:#302b52; --c6w:#1b3f37}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body[data-route="home"]{
+  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
+  --ink2:#c3d6e3; --muted:#93abbf; --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
+  --blue-wash:#1d405a; --c2w:#3b3220; --c3w:#43293a; --c4w:#1c3d52; --c5w:#302b52; --c6w:#1b3f37}}
+body[data-route="home"] #view{--line:var(--ink2)}
+body[data-route="home"] #view>.stack{gap:14px}
+body[data-route="home"] #view .panel,body[data-route="home"] #view .cd,body[data-route="home"] #view .d20,body[data-route="home"] #view .navrow{
+  border-radius:3px;border:1.5px solid var(--line);box-shadow:3px 3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+/* パネル見出しを反転タブに（書式の記入欄見出し） */
+body[data-route="home"] #view .panel>.lg:first-child,body[data-route="home"] #view .panel .gauge .lg{
+  margin:-16px -16px 14px;padding:5px 12px;background:var(--ink);color:var(--paper);letter-spacing:.26em}
+body[data-route="home"] #view .panel .gauge .lg{margin:0 0 8px;display:inline-flex}
+body[data-route="home"] #view .panel>.lg::after,body[data-route="home"] #view .gauge .lg::after{display:none}
+body[data-route="home"] #view .panel>.lg::before,body[data-route="home"] #view .gauge .lg::before{background:var(--mag);width:8px;height:8px}
+body[data-route="home"] #view .lg::before{border-radius:0}
+body[data-route="home"] #view h2.page{font-size:19px}
+/* カウントダウン：ETA 欄 */
+body[data-route="home"] #view .cd{background:var(--panel);padding:0;gap:0;grid-template-columns:auto 1fr}
+body[data-route="home"] #view .cd>div:first-child{padding:12px 16px;background:var(--c3w);border-right:1.5px solid var(--line);height:100%}
+body[data-route="home"] #view .cd>div:last-child{padding:12px 14px}
+/* 今日の20問：管制のフライトストリップ */
+body[data-route="home"] #view .d20{padding:0;gap:0;grid-template-columns:76px 1fr 44px;min-height:76px;overflow:hidden}
+body[data-route="home"] #view .d20 .g{border-radius:0;border:0;border-right:1.5px solid var(--line);height:100%;min-height:76px;background:var(--c3);color:var(--panel)}
+body[data-route="home"] #view .d20 .g b,body[data-route="home"] #view .d20 .g i{line-height:76px}
+body[data-route="home"] #view .d20 .tx{padding:10px 14px}
+body[data-route="home"] #view .d20 .ar{height:100%;display:grid;place-items:center;border-left:1.5px dashed var(--line);font-size:15px}
+/* 3つの数値：1つの表に */
+body[data-route="home"] #view .readout{gap:0;border:1.5px solid var(--line);border-radius:3px;background:var(--panel);box-shadow:3px 3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+body[data-route="home"] #view .readout>div{border:0;border-left:1.5px solid var(--line);border-radius:0;background:var(--panel);display:flex;flex-direction:column-reverse;padding:0}
+body[data-route="home"] #view .readout>div:first-child{border-left:0}
+body[data-route="home"] #view .readout span{display:block;background:var(--rw);border-bottom:1.5px solid var(--line);padding:4px 2px;color:var(--ink2);font-weight:700}
+body[data-route="home"] #view .readout b{padding:10px 4px 9px;font-size:24px}
+/* 活動：記録欄のマス目 */
+body[data-route="home"] #view .act{gap:0;border:1.5px solid var(--line)}
+body[data-route="home"] #view .act s{border-radius:0;border:0;border-left:1px solid var(--rule);height:26px;background:var(--panel)}
+body[data-route="home"] #view .act s:first-child{border-left:0}
+body[data-route="home"] #view .act s.on{background:repeating-linear-gradient(135deg,var(--c6) 0 3px,color-mix(in srgb,var(--c6) 55%,var(--panel)) 3px 6px)}
+body[data-route="home"] #view .act s.tdy{outline:2px solid var(--mag);outline-offset:-2px}
+/* 章別：表の行 */
+body[data-route="home"] #view .chrow{border-bottom:1px dashed var(--rule)}
+body[data-route="home"] #view .chrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0}
+body[data-route="home"] #view .bar{border-radius:0;height:10px;border:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),var(--rule) calc(10% - 1px) 10%)}
+body[data-route="home"] #view .bar i{border-radius:0}
+/* クイックスタート：ウェイポイント */
+body[data-route="home"] #view .navrow{min-height:62px}
+body[data-route="home"] #view .navrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0;clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%)}
+body[data-route="home"] #view .navrow .ar{font-size:15px}
+body[data-route="home"] #view .d20 .tx .mt{line-height:1.6;display:block;text-wrap:balance}
+
 /* ============ settings ============ */
 .set{border:1px solid var(--rule);border-radius:var(--rl);background:var(--panel);overflow:hidden}
 .set .r{display:flex;align-items:center;gap:12px;padding:13px 15px;border-top:1px solid var(--rule2);flex-wrap:wrap}
@@ -751,6 +806,7 @@ function render(){
   document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-current", String(b.dataset.r===route)));
   $("#hud").innerHTML = '<b>'+overall().mastery+'<span style="font-size:9px">%</span></b>習得度';
   const v = $("#view");
+  document.body.dataset.route = session ? "session" : route;
   if(session){ v.innerHTML = session.done ? viewResult() : viewQuiz(); afterRender(); return; }
   v.innerHTML = ({home:viewHome, drill:viewDrill, mock:viewMock, review:viewReview, card:viewCard, text:viewText, settings:viewSettings}[route])();
   afterRender();

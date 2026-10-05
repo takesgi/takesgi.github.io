@@ -24,6 +24,7 @@
     if(n !== 1) throw new Error("ANCHOR " + name + " matched " + n + " times"); h = h.replace(oldS, () => newS); }
   ```
 - クリック処理は `#view` への委譲1か所。新しい操作は委譲セレクタに `[data-xxx]` を足し、分岐に `if(d.xxx){…}` を足す
+- ホーム画面だけのデザイン（航空図・フライトプラン風）は CSS の「home: 航空図・フライトプラン」の区画。`render()` が `body` に `data-route`（home / drill … / 模試や演習の最中は session）を付け、`body[data-route="home"]` で絞り込んでいる。ダークモードのホームだけ、既存の色変数を淡い紺色の値に置き直している
 - 色は既存の CSS 変数（--c2〜--c6, --ok/--ng/--warn, --blue/--mag, --ink/--muted, --paper/--panel）だけを使う。角丸は --r/--rm/--rl/--rp
 
 ## 変更後に必ず確認すること
