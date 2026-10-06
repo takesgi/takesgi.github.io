@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="無人航空機の飛行の安全に関する教則 第5版に準拠した、二等無人航空機操縦士 学科試験の対策アプリ。420問の問題演習、本番形式の模擬試験、苦手復習、暗記カード、教則ダイジェストを収録。">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15242f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1f3349" media="(prefers-color-scheme: dark)">
 <style>:root{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
@@ -29,34 +29,34 @@
   --c2:#e2860b; --c2w:#fdf0d8; --c3:#d6246b; --c3w:#fde2ec;
   --c4:#0d8fc7; --c4w:#dbeffb; --c5:#6a4ad6; --c5w:#e9e3fc;
   --c6:#0d9a74; --c6w:#d8f5ec;
-  --r:12px; --rm:20px; --rl:28px; --rp:999px;
+  --r:3px; --rm:3px; --rl:3px; --rp:3px;
   --fd:"UA Gothic","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
   --fb:"UA Gothic","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
   --fm:"UA Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0b1721; --panel:#15242f; --panel2:#1d303d; --sink:#112029;
-  --ink:#e9f3f8; --ink2:#bad0dc; --muted:#849cad;
-  --rule:#2a4051; --rule2:#203444; --grid:rgba(120,190,230,.06);
-  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#123244;
-  --mag:#ff80b1; --mag-wash:#36212d;
-  --ok:#3fd0a0; --ok-wash:#0e3128; --ng:#f48a7c; --ng-wash:#321e1b;
-  --warn:#e7c05d; --warn-wash:#2e2619;
-  --c2:#f9ba4b; --c2w:#352a11; --c3:#ff80b1; --c3w:#37222d;
-  --c4:#4fc3ed; --c4w:#123342; --c5:#ab96f9; --c5w:#272242;
-  --c6:#40d7ab; --c6w:#0e332b;
+  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
+  --ink:#e9f3f8; --ink2:#c3d6e3; --muted:#93abbf;
+  --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
+  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#1d405a;
+  --mag:#ff80b1; --mag-wash:#43293a;
+  --ok:#3fd0a0; --ok-wash:#17403a; --ng:#f48a7c; --ng-wash:#44292a;
+  --warn:#e7c05d; --warn-wash:#3b3220;
+  --c2:#f9ba4b; --c2w:#3b3220; --c3:#ff80b1; --c3w:#43293a;
+  --c4:#4fc3ed; --c4w:#1c3d52; --c5:#ab96f9; --c5w:#302b52;
+  --c6:#40d7ab; --c6w:#1b3f37;
 }}
 :root[data-theme="dark"]{
-  --paper:#0b1721; --panel:#15242f; --panel2:#1d303d; --sink:#112029;
-  --ink:#e9f3f8; --ink2:#bad0dc; --muted:#849cad;
-  --rule:#2a4051; --rule2:#203444; --grid:rgba(120,190,230,.06);
-  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#123244;
-  --mag:#ff80b1; --mag-wash:#36212d;
-  --ok:#3fd0a0; --ok-wash:#0e3128; --ng:#f48a7c; --ng-wash:#321e1b;
-  --warn:#e7c05d; --warn-wash:#2e2619;
-  --c2:#f9ba4b; --c2w:#352a11; --c3:#ff80b1; --c3w:#37222d;
-  --c4:#4fc3ed; --c4w:#123342; --c5:#ab96f9; --c5w:#272242;
-  --c6:#40d7ab; --c6w:#0e332b;
+  --paper:#16263a; --panel:#1f3349; --panel2:#273d56; --sink:#1a2c41;
+  --ink:#e9f3f8; --ink2:#c3d6e3; --muted:#93abbf;
+  --rule:#3b5674; --rule2:#2c4560; --grid:rgba(140,190,235,.07);
+  --blue:#4bb8ea; --blue-ink:#04212e; --blue-wash:#1d405a;
+  --mag:#ff80b1; --mag-wash:#43293a;
+  --ok:#3fd0a0; --ok-wash:#17403a; --ng:#f48a7c; --ng-wash:#44292a;
+  --warn:#e7c05d; --warn-wash:#3b3220;
+  --c2:#f9ba4b; --c2w:#3b3220; --c3:#ff80b1; --c3w:#43293a;
+  --c4:#4fc3ed; --c4w:#1c3d52; --c5:#ab96f9; --c5w:#302b52;
+  --c6:#40d7ab; --c6w:#1b3f37;
 }
 
 *{box-sizing:border-box}
@@ -276,6 +276,22 @@ button.chrow:hover .idx{background:var(--cc);color:var(--panel)}
 .fcface .hint{font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;color:var(--muted)}
 .fcback .hint:first-child{color:var(--cc);font-weight:700}
 
+/* ============ numeric input ============ */
+.numq{border:1px solid var(--rule);border-top:4px solid var(--cc);border-radius:var(--r);background:var(--panel);padding:18px 18px 8px}
+.numq .hint{font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;color:var(--muted)}
+.numq .q{font-family:var(--fd);font-weight:700;font-size:17.5px;line-height:1.7;margin:8px 0 10px}
+.numf{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;padding:11px 0;border-top:1px solid var(--rule2);font-size:14px}
+.numf .lb{flex-basis:100%;color:var(--ink2);font-size:13px}
+.numin{font:inherit;font-family:var(--fm);font-size:20px;font-weight:700;width:5.5em;max-width:55%;text-align:right;
+  border:1px solid var(--rule);border-radius:var(--r);background:var(--panel2);color:var(--ink);padding:7px 12px}
+.numin:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-wash)}
+.numin:disabled{opacity:1;-webkit-text-fill-color:currentColor}
+.numf.ok .numin{border-color:var(--ok);background:var(--ok-wash);color:var(--ok)}
+.numf.ng .numin{border-color:var(--ng);background:var(--ng-wash);color:var(--ng)}
+.numf .u{font-weight:700;color:var(--ink2)}
+.numf .ans{margin-left:auto;font-family:var(--fm);font-size:12px;font-weight:700}
+.numf.ok .ans{color:var(--ok)} .numf.ng .ans{color:var(--ng)}
+
 /* ============ textbook ============ */
 .tsec{background:var(--panel);border:1px solid var(--rule);border-radius:var(--rl);overflow:hidden}
 .tsec+.tsec{margin-top:-1px}
@@ -321,6 +337,90 @@ button.chrow:hover .idx{background:var(--cc);color:var(--panel)}
 .cd .s{font-size:12.5px;color:var(--ink2);line-height:1.65}
 .cd.today{--c3:var(--ok);border-top-color:var(--ok);background:var(--ok-wash)}
 .cd.today .d,.cd.today .t{color:var(--ok)}
+
+/* ============ 航空図・フライトプラン（全画面共通のデザイン） ============ */
+:root{--line:var(--ink2);--shadow:3px 3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+#view>.stack{gap:14px}
+#view .panel,#view .cd,#view .d20,#view .navrow{
+  border-radius:3px;border:1.5px solid var(--line);box-shadow:var(--shadow)}
+/* パネル見出しを反転タブに（書式の記入欄見出し） */
+#view .panel>.lg:first-child,#view .panel .gauge .lg{
+  margin:-16px -16px 14px;padding:5px 12px;background:var(--ink);color:var(--paper);letter-spacing:.26em}
+#view .panel .gauge .lg{margin:0 0 8px;display:inline-flex}
+#view .panel>.lg::after,#view .gauge .lg::after{display:none}
+#view .panel>.lg::before,#view .gauge .lg::before{background:var(--mag);width:8px;height:8px}
+#view .lg::before{border-radius:0}
+#view h2.page{font-size:19px}
+/* カウントダウン：ETA 欄 */
+#view .cd{background:var(--panel);padding:0;gap:0;grid-template-columns:auto 1fr}
+#view .cd>div:first-child{padding:12px 16px;background:var(--c3w);border-right:1.5px solid var(--line);height:100%}
+#view .cd>div:last-child{padding:12px 14px}
+/* 今日の20問：管制のフライトストリップ */
+#view .d20{padding:0;gap:0;grid-template-columns:76px 1fr 44px;min-height:76px;overflow:hidden}
+#view .d20 .g{border-radius:0;border:0;border-right:1.5px solid var(--line);height:100%;min-height:76px;background:var(--c3);color:var(--panel)}
+#view .d20 .g b,#view .d20 .g i{line-height:76px}
+#view .d20 .tx{padding:10px 14px}
+#view .d20 .ar{height:100%;display:grid;place-items:center;border-left:1.5px dashed var(--line);font-size:15px}
+/* 3つの数値：1つの表に */
+#view .readout{gap:0;border:1.5px solid var(--line);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+#view .readout>div{border:0;border-left:1.5px solid var(--line);border-radius:0;background:var(--panel);display:flex;flex-direction:column-reverse;padding:0}
+#view .readout>div:first-child{border-left:0}
+#view .readout span{display:block;background:var(--rw);border-bottom:1.5px solid var(--line);padding:4px 2px;color:var(--ink2);font-weight:700}
+#view .readout b{padding:10px 4px 9px;font-size:24px}
+/* 活動：記録欄のマス目 */
+#view .act{gap:0;border:1.5px solid var(--line)}
+#view .act s{border-radius:0;border:0;border-left:1px solid var(--rule);height:26px;background:var(--panel)}
+#view .act s:first-child{border-left:0}
+#view .act s.on{background:repeating-linear-gradient(135deg,var(--c6) 0 3px,color-mix(in srgb,var(--c6) 55%,var(--panel)) 3px 6px)}
+#view .act s.tdy{outline:2px solid var(--mag);outline-offset:-2px}
+/* 章別：表の行 */
+#view .chrow{border-bottom:1px dashed var(--rule)}
+#view .chrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0}
+#view .bar{border-radius:0;height:10px;border:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0 calc(10% - 1px),var(--rule) calc(10% - 1px) 10%)}
+#view .bar i{border-radius:0}
+/* クイックスタート：ウェイポイント */
+#view .navrow{min-height:62px}
+#view .navrow .idx{border-radius:0;background:var(--cc);color:var(--panel);border:0;clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%)}
+#view .navrow .ar{font-size:15px}
+#view .d20 .tx .mt{line-height:1.6;display:block;text-wrap:balance}
+
+/* --- 全画面：枠・影・ボタン --- */
+.opt,.expl,.set,.fcface,.verdict,.numq,.rdy,.tsec,.sheet .box,.qfoot .bmk:not(.on){border:1.5px solid var(--line)}
+.opt,.set,.verdict,.numq,.fcface{box-shadow:var(--shadow)}
+.expl{border-top-width:4px}
+.fcface,.numq{border-top:4px solid var(--cc)}
+.verdict{border-top-width:4px}
+.tsec{box-shadow:none}
+.tsec+.tsec{margin-top:-1.5px}
+.tsec>summary::before{border-radius:0}
+.tsec[open]>summary{border-bottom:1.5px solid var(--line)}
+.opt .k{border-radius:0}
+.btn{border:1.5px solid var(--line);box-shadow:2px 2px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+.btn.pri{border-color:var(--blue)}
+.btn:not(:disabled):active{transform:translate(1px,1px);box-shadow:none}
+.btn:disabled{box-shadow:none}
+.seg{border:1.5px solid var(--line);box-shadow:var(--shadow)}
+.seg button{min-height:44px}
+.seg .cap{border-right:1.5px solid var(--line)}
+.rz{min-height:40px}
+button.sw{border-radius:3px;width:52px;height:30px}
+button.sw::after{border-radius:2px;width:24px;height:24px}
+button.sw[aria-checked="true"]::after{transform:translateX(22px)}
+button.sw{border:1.5px solid var(--line)}
+button.sw[aria-checked="true"]{border-color:var(--ok)}
+button.sw:not([aria-checked="true"])::after{background:var(--muted)}
+.revitem .mk{border-radius:0}
+.qsec{border-radius:0}
+.chtitle i{border-radius:0}
+.verdict .score{letter-spacing:-.02em}
+.sheet .box{box-shadow:0 -3px 0 color-mix(in srgb,var(--line) 18%,transparent)}
+/* 設定画面：見出しを反転した記入欄の見出し帯に */
+section>.lg:has(+ .set){display:inline-flex;margin:0;padding:5px 12px;background:var(--ink);color:var(--paper);letter-spacing:.26em}
+section>.lg:has(+ .set)::before{background:var(--mag);width:8px;height:8px}
+section>.lg:has(+ .set)::after{display:none}
+/* 見出しの上に乗る画面上部のボタンは、見た目そのままで押せる範囲を44pxに広げる */
+.iconbtn{position:relative}
+.iconbtn::after{content:"";position:absolute;inset:-6px}
 
 /* ============ settings ============ */
 .set{border:1px solid var(--rule);border-radius:var(--rl);background:var(--panel);overflow:hidden}
@@ -448,7 +548,7 @@ const catv = cat => { const k = CATC[cat]||"blue";
   return k==="blue" ? 'style="--cc:var(--blue);--cw:var(--blue-wash)"' : 'style="--cc:var(--'+k+');--cw:var(--'+k+'w)"'; };
 
 /* ---------- store ---------- */
-const blank = () => ({q:{}, mocks:[], days:[], theme:null, exam:'', remind:0, rtime:'20:00', rlast:'', rmode:null});
+const blank = () => ({q:{}, mocks:[], days:[], theme:null, exam:'', remind:0, rtime:'20:00', rlast:'', rmode:null, nm:{}});
 let S = blank();
 try{ const r = localStorage.getItem(KEY); if(r) S = Object.assign(blank(), JSON.parse(r)); }catch(e){}
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
@@ -797,7 +897,10 @@ function viewDrill(){
     + '<p class="sub" style="margin:0 0 12px">章をまたいでランダムに出題します。</p>'
     + '<div class="row" style="gap:8px"><button class="btn" data-mix="10">10問</button><button class="btn" data-mix="20">20問</button>'
     + '<button class="btn" data-mix="30">30問</button>'
-    + '<button class="btn" data-fresh="1"'+(fresh.length?"":" disabled")+'>未解答 20問 ('+fresh.length+')</button></div></section></div>';
+    + '<button class="btn" data-fresh="1"'+(fresh.length?"":" disabled")+'>未解答 20問 ('+fresh.length+')</button></div></section>'
+    + '<section class="panel" style="--cc:var(--c3);--cw:var(--c3w)"><div class="lg">NUMBERS</div>'
+    + '<p class="sub" style="margin:0 0 12px">重要数値を三択ではなく、数字を打ち込んで答えます。うろ覚えの数字が見つかります。</p>'
+    + '<button class="btn" data-numgo="1">数値入力モード（'+NUM.length+'問）</button></section></div>';
 }
 
 function viewMock(){
@@ -891,12 +994,122 @@ function secPanel(){
 }
 
 let cardIdx = 0, cardCat = "すべて", cardFlip = false, cardOrder = null;
+
+/* ---------- 数値の直接入力モード ----------
+   暗記カードの重要数値を、三択ではなく数字を打ち込んで答える。
+   c=元になった暗記カードのID, q=問い, a=[[前置き, 正しい数値, 単位など], …]
+   内容はカードの答え（教則 第5版準拠）から作っており、新しい事実は足していない */
+const NUM = [
+  {c:1,  q:"無人航空機となる重量（本体＋バッテリー）の下限", a:[["",100,"g以上"]]},
+  {c:2,  q:"飛行禁止空域となる高度（地表又は水面から）", a:[["",150,"m以上"]]},
+  {c:3,  q:"航空交通管制区の下限高度（地表又は水面から）", a:[["",200,"m以上"]]},
+  {c:4,  q:"模型航空機の届出が必要になる高度", a:[["",250,"m以上"]]},
+  {c:5,  q:"第三者・第三者の物件との間に確保する距離（未満なら承認が必要）", a:[["",30,"m"]]},
+  {c:6,  q:"係留する紐等の長さの上限（十分な強度を有するもの）", a:[["",30,"m以下"]]},
+  {c:7,  q:"高層構造物の周辺で150m規制から除外される範囲", a:[["当該構造物から",30,"m以内"]]},
+  {c:8,  q:"催し場所上空で飛行を中止すべき風速", a:[["",5,"m/s以上"]]},
+  {c:9,  q:"カテゴリーⅡAに該当する機体の最大離陸重量", a:[["",25,"kg以上"]]},
+  {c:10, q:"登録記号の文字の高さ", a:[["最大離陸重量25kg以上",25,"mm以上"],["25kg未満",3,"mm以上"]]},
+  {c:11, q:"リモートIDの発信頻度", a:[["1秒間に",1,"回以上"]]},
+  {c:12, q:"機体登録の有効期間", a:[["",3,"年"]]},
+  {c:13, q:"機体認証の有効期間", a:[["第一種",1,"年"],["第二種",3,"年"]]},
+  {c:14, q:"技能証明の有効期間（一等・二等とも）", a:[["",3,"年"]]},
+  {c:15, q:"技能証明を申請できる最低年齢", a:[["",16,"歳"]]},
+  {c:16, q:"技能証明の更新講習の修了時期と、更新申請の期間", a:[["更新講習：申請日以前",3,"月以内"],["更新申請：有効期間満了日の",6,"月前から"],["",1,"月前まで"]]},
+  {c:17, q:"小型無人機等飛行禁止法のイエロー・ゾーン", a:[["対象施設の周囲おおむね",1000,"m"]]},
+  {c:18, q:"GNSSの測位に必要な衛星の数", a:[["",4,"基以上"]]},
+  {c:19, q:"リチウムポリマーバッテリー1セルの電圧", a:[["",3.7,"V"]]},
+  {c:20, q:"バッテリーを長期保管するときの目安", a:[["充電量",60,"%"],["保管しない環境：",35,"℃を超える"]]},
+  {c:21, q:"離着陸地点と操縦者・補助者との推奨距離", a:[["マルチローター",3,"m以上"],["飛行機・ヘリコプター",20,"m以上"],["周囲の物件から（いずれも）",30,"m以上"]]},
+  {c:22, q:"「風速」とは、観測時の前何分間の平均風速か", a:[["観測時の前",10,"分間"]]},
+  {c:23, q:"気象庁の風力階級（ビューフォート風力階級）の階級の数", a:[["",13,"階級"]]},
+  {c:24, q:"標準大気圧（1気圧）", a:[["",1013,"hPa"]]},
+  {c:25, q:"飛行許可・承認申請の提出期限", a:[["カテゴリーⅡ",10,"開庁日前"],["カテゴリーⅢ",20,"開庁日前"]]},
+  {c:26, q:"技能証明の限定の数", a:[["種類の限定",6,"種類"],["飛行の方法の限定",3,"種類"]]},
+  {c:60, q:"危険半径：高度と同じ数値と、次の距離のいずれか長い方", a:[["",30,"m"]]}
+];
+let cardMode = "flip", numS = null;
+/* 全角数字・カンマ・単位が混ざっても数値だけを取り出す */
+function numParse(s){
+  s = String(s||"").replace(/[０-９．－]/g, c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0)).replace(/[,，、\s]/g,"");
+  const m = s.match(/-?\d+(?:\.\d+)?/);
+  return m ? parseFloat(m[0]) : NaN;
+}
+function nmRec(c){
+  if(!S.nm || typeof S.nm!=="object") S.nm = {};
+  return S.nm[c] || (S.nm[c] = {o:0,x:0,l:null});
+}
+const numMissIds = () => NUM.filter(n=>{ const r=S.nm&&S.nm[n.c]; return r && r.l===0; }).map(n=>n.c);
+function numNew(kind){
+  const ids = kind==="miss" ? numMissIds() : NUM.map(n=>n.c);
+  if(!ids.length) return null;
+  return {ids:shuffle(ids), i:0, vals:null, res:null, ok:0, log:[], done:false, focus:false};
+}
+function numCheck(give){
+  const n = NUM.find(x=>x.c===numS.ids[numS.i]);
+  const vals = Array.from(document.querySelectorAll(".numin")).map(x=>x.value.trim());
+  if(!give && vals.every(v=>!v)){ toast("数値を入力してください"); return; }
+  const res = n.a.map((a,k)=> Math.abs(numParse(vals[k]) - a[1]) < 1e-9);
+  const ok = res.every(Boolean);
+  numS.vals = vals; numS.res = res; numS.log.push(ok); if(ok) numS.ok++;
+  const r = nmRec(n.c); ok ? r.o++ : r.x++; r.l = ok ? 1 : 0;
+  save(); markDay(); numS.focus = true; render();
+}
+function numFmt(v){ return v>=10000 || v===1000 ? v.toLocaleString("ja-JP") : String(v); }
+function cardModeSeg(){
+  return '<div class="seg"><button data-cmode="flip" aria-pressed="'+(cardMode==="flip")+'">カードをめくる</button>'
+    + '<button data-cmode="num" aria-pressed="'+(cardMode==="num")+'" style="--sw:var(--c3w);--sc:var(--c3)">数値を入力（'+NUM.length+'）</button></div>';
+}
+function viewNum(){
+  if(!numS) numS = numNew("all");
+  const miss = numMissIds().length;
+  const head = '<div><div class="lg o">NUMBER INPUT</div><h2 class="page">数字は自分で書けて本物</h2>'
+    + '<p class="sub">三択ではなく、数値を打ち込んで答えます。全角・半角どちらでも構いません（単位は入力不要）。</p></div>'
+    + cardModeSeg();
+  if(numS.done){
+    const n = numS.ids.length;
+    return '<div class="stack">'+head
+      + '<div class="verdict"><div class="lg b" style="justify-content:center">NUMBER INPUT RESULT</div>'
+      + '<div class="score">'+numS.ok+'<small> / '+n+'</small></div>'
+      + '<p class="sub" style="margin:8px 0 0">正答率 '+Math.round(numS.ok/Math.max(1,n)*100)+'%</p></div>'
+      + '<section class="panel"><div class="lg">ANSWER SHEET</div>'
+      + numS.ids.map((c,i)=>{ const x=NUM.find(o=>o.c===c), ok=numS.log[i];
+          return '<div class="revitem" style="cursor:default"><span class="mk '+(ok?"ok":"ng")+'">'+(ok?"✓":"✕")+'</span>'
+            + '<span><p>'+esc(x.q)+'</p><em>'+x.a.map(a=>esc(a[0]+numFmt(a[1])+a[2])).join(" ／ ")+'</em></span></div>'; }).join("")
+      + '</section>'
+      + '<div class="row" style="flex-wrap:nowrap;gap:8px"><button class="btn" style="flex:1" data-nstart="miss"'+(miss?"":" disabled")+'>まちがえた '+miss+' 問</button>'
+      + '<button class="btn pri" style="flex:1" data-nstart="all">もう一度（全問）</button></div></div>';
+  }
+  const n = NUM.find(x=>x.c===numS.ids[numS.i]), card = DATA.C.find(c=>c.id===n.c) || {cat:"重要数値", b:""};
+  const checked = !!numS.vals, total = numS.ids.length, last = numS.i===total-1;
+  const fields = n.a.map(([lb,v,u],k)=>{
+    const cls = checked ? (numS.res[k] ? " ok" : " ng") : "";
+    return '<label class="numf'+cls+'">'+(lb ? '<span class="lb">'+esc(lb)+'</span>' : '')
+      + '<input class="numin" type="text" inputmode="decimal" autocomplete="off" enterkeyhint="'+(k<n.a.length-1?"next":"done")+'"'
+      + ' aria-label="'+esc((lb||n.q)+"（単位 "+u+"）")+'"'+(checked ? ' value="'+esc(numS.vals[k])+'" disabled' : '')+'>'
+      + '<span class="u">'+esc(u)+'</span>'
+      + (checked ? '<span class="ans">'+(numS.res[k] ? "✓" : "正答 "+esc(numFmt(v)))+'</span>' : '')+'</label>';
+  }).join("");
+  const ok = checked && numS.res.every(Boolean), r = (S.nm && S.nm[n.c]) || {o:0,x:0};
+  return '<div class="stack">'+head
+    + '<div class="numq" '+catv(card.cat)+'><div class="hint">'+esc(card.cat)+' · '+pad2(numS.i+1)+' / '+pad2(total)+' · 正解 '+numS.ok+'</div>'
+    + '<div class="q">'+esc(n.q)+'</div>'+fields+'</div>'
+    + (checked ? '<div class="expl '+(ok?"right":"wrong")+'" style="margin-top:0"><div class="v">'+(ok?"CORRECT ／ 正解":"INCORRECT ／ 不正解")
+        + '<em>これまで '+r.o+' / '+(r.o+r.x)+' 回正解</em></div><p>'+esc(card.b)+'</p></div>' : '')
+    + '<div class="row" style="flex-wrap:nowrap;gap:8px">'
+    + (checked
+        ? '<button class="btn pri" style="flex:1" data-nnext="1">'+(last?"結果を見る":"次の数値 →")+'</button>'
+        : '<button class="btn" data-ncheck="give">答えを見る</button><button class="btn pri" style="flex:1" data-ncheck="1">答え合わせ</button>')
+    + '</div>'
+    + '<p class="note">数値は暗記カードの答え（教則 第5版準拠）から出題しています。三択の問題・模擬試験の記録には影響しません。</p></div>';
+}
 function cardPool(){
   const p = cardCat==="すべて"? DATA.C : DATA.C.filter(c=>c.cat===cardCat);
   if(!cardOrder || cardOrder.cat!==cardCat || cardOrder.length!==p.length){ cardOrder = p.map(c=>c.id); cardOrder.cat = cardCat; }
   return cardOrder.map(id=>DATA.C.find(c=>c.id===id));
 }
 function viewCard(){
+  if(cardMode==="num") return viewNum();
   const cats = ["すべて"].concat([...new Set(DATA.C.map(c=>c.cat))]);
   const pool = cardPool();
   if(cardIdx >= pool.length) cardIdx = 0;
@@ -904,6 +1117,7 @@ function viewCard(){
   return '<div class="stack">'
     + '<div><div class="lg o">FLASH CARDS</div><h2 class="page">数字と定義を落とさない</h2>'
     + '<p class="sub">学科試験で最も点差がつくのは数字です。カードをタップすると答えが出ます。</p></div>'
+    + cardModeSeg()
     + '<div class="seg segscroll">'+cats.map(x=>{
         const k = CATC[x]||"blue", sw = k==="blue"? "var(--blue-wash)":"var(--"+k+"w)", sc = k==="blue"? "var(--blue)":"var(--"+k+")";
         return '<button data-cat="'+esc(x)+'" aria-pressed="'+(x===cardCat)+'" style="--sw:'+sw+';--sc:'+sc+'">'+esc(x)+'</button>';
@@ -1289,7 +1503,7 @@ function viewSettings(){
     + '<div class="r"><span class="lb"><b>インストール状態</b><span class="h">ホーム画面から全画面で起動できます</span></span>'
       + (inst? '<span class="pill on">アプリとして起動中</span>':'<span class="pill off">ブラウザで表示中</span>')+'</div>'
     + '<div class="r"><span class="lb"><b>収録数</b><span class="h">教則 第5版（令和8年7月14日適用）準拠</span></span>'
-      + '<span class="mono" style="font-size:12.5px">問題'+DATA.Q.length+' / カード'+DATA.C.length+'</span></div>'
+      + '<span class="mono" style="font-size:12.5px">問題'+DATA.Q.length+' / カード'+DATA.C.length+' / 数値'+NUM.length+'</span></div>'
     + '<div class="r"><span class="lb"><b>復習の進み具合</b><span class="h">1→3→7→14→30→60日の間隔で出し直します</span></span>'
       + '<span class="mono" style="font-size:12.5px">今日'+dueIds().length+' / 定着'+settled()+'</span></div>'
     + '<div class="r"><span class="lb"><b>つまずきの傾向</b><span class="h">間違えた理由の記録から集計します</span></span>'
@@ -1301,7 +1515,7 @@ function viewSettings(){
 
 /* ---------- events ---------- */
 $("#view").addEventListener("click", e=>{
-  const t = e.target.closest("[data-go],[data-ch],[data-size],[data-mix],[data-fresh],[data-startmock],[data-rev],[data-reset],[data-cat],[data-cnav],[data-cshuffle],[data-pick],[data-next],[data-prev],[data-quit],[data-bm],[data-jump],[data-again],[data-share],[data-askn],[data-testn],[data-remind],[data-export],[data-examclear],[data-due],[data-secx],[data-rz],[data-daily],[data-pace],[data-tlink],[data-print],[data-miss],[data-clearz]");
+  const t = e.target.closest("[data-go],[data-ch],[data-size],[data-mix],[data-fresh],[data-startmock],[data-rev],[data-reset],[data-cat],[data-cnav],[data-cshuffle],[data-pick],[data-next],[data-prev],[data-quit],[data-bm],[data-jump],[data-again],[data-share],[data-askn],[data-testn],[data-remind],[data-export],[data-examclear],[data-due],[data-secx],[data-rz],[data-daily],[data-pace],[data-tlink],[data-print],[data-miss],[data-clearz],[data-cmode],[data-ncheck],[data-nnext],[data-nstart],[data-numgo]");
   if(!t) return;
   const d = t.dataset;
   if(session){
@@ -1369,6 +1583,20 @@ $("#view").addEventListener("click", e=>{
         }).join("")+'</div>');
     return;
   }
+  if(d.cmode){ cardMode = d.cmode==="num" ? "num" : "flip"; cardFlip=false; render(); return; }
+  if(d.numgo){ cardMode="num"; numS=numNew("all"); go("card"); return; }
+  if(d.nstart){
+    const ns = numNew(d.nstart);
+    if(!ns){ toast("まちがえた数値はありません"); return; }
+    numS = ns; numS.focus = true; render(); window.scrollTo(0,0); return;
+  }
+  if(d.ncheck){ if(numS && !numS.vals) numCheck(d.ncheck==="give"); return; }
+  if(d.nnext){
+    if(!numS) return;
+    if(numS.i < numS.ids.length-1){ numS.i++; numS.vals=null; numS.res=null; numS.focus=true; }
+    else numS.done = true;
+    render(); window.scrollTo(0,0); return;
+  }
   if(d.print){ window.print(); return; }
   if(d.go){ go(d.go); return; }
   if(d.askn){ askNotif().then(()=>{ scheduleReminder(); syncReminderToSW(); render(); }); return; }
@@ -1428,6 +1656,17 @@ function afterRender(){
     const flip = ()=>{ cardFlip=!cardFlip; fc.classList.toggle("flip", cardFlip); markDay(); };
     fc.addEventListener("click", flip);
     fc.addEventListener("keydown", ev=>{ if(ev.key===" "||ev.key==="Enter"){ ev.preventDefault(); flip(); } });
+  }
+  const nins = Array.from(v.querySelectorAll(".numin:not(:disabled)"));
+  nins.forEach((inp,k)=>inp.addEventListener("keydown", ev=>{
+    if(ev.key!=="Enter" || ev.isComposing) return;
+    ev.preventDefault();
+    if(k < nins.length-1) nins[k+1].focus(); else numCheck(false);
+  }));
+  if(numS && numS.focus){
+    numS.focus = false;
+    const f = nins[0] || v.querySelector("[data-nnext]");
+    if(f) f.focus({preventScroll:true});
   }
   v.querySelectorAll(".tbody table").forEach(tb=>{
     if(tb.parentElement.classList.contains("tbl-scroll")) return;
